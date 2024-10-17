@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addresses</title>
+    <style>
+        body{
+            background: #000000;
+            color: #ffffff;
+        }
+        .code-container {
+            position: relative;
+            background: #3e3e3e;
+            padding: 16px;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 5px 10px;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Wallet 1</h1>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode()">Copy</button>
+            <pre><code id="code-block">
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Code Block&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;!-- Your content here --&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+            </code></pre>
+        </div>
+    
+        <h1>Wallet 2</h1>
+    </div>
+    
+    <script>
+        function copyCode() {
+            const codeBlock = document.getElementById('code-block');
+            const range = document.createRange();
+            range.selectNodeContents(codeBlock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand('copy');
+            alert('Code copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
